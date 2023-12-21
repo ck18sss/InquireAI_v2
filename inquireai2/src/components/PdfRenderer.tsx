@@ -12,6 +12,7 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 import { useToast } from './ui/use-toast'
+import React, { useRef } from 'react';
 
 import { useResizeDetector } from 'react-resize-detector'
 import { Button } from './ui/button'
@@ -33,6 +34,7 @@ import {
 import SimpleBar from 'simplebar-react'
 import PdfFullscreen from './PdfFullscreen'
 
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 interface PdfRendererProps {
@@ -41,7 +43,6 @@ interface PdfRendererProps {
 
 const PdfRenderer = ({ url }: PdfRendererProps) => {
   const { toast } = useToast()
-
   const [numPages, setNumPages] = useState<number>()
   const [currPage, setCurrPage] = useState<number>(1)
   const [scale, setScale] = useState<number>(1)
@@ -49,6 +50,11 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
   const [renderedScale, setRenderedScale] = useState<
     number | null
   >(null)
+  const pdfRef = useRef(null)
+  const { width } = useResizeDetector({
+    targetRef: pdfRef,
+    
+  });
 
   const isLoading = renderedScale !== scale
 
@@ -78,8 +84,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
 
   console.log(errors)
 
-  const { width, ref } = useResizeDetector()
-
+  
   const handlePageSubmit = ({
     page,
   }: TCustomPageValidator) => {
@@ -187,7 +192,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
         <SimpleBar
           autoHide={false}
           className='max-h-[calc(100vh-10rem)]'>
-          <div ref={ref}>
+          <div ref={pdfRef}>
             <Document
               loading={
                 <div className='flex justify-center'>
@@ -241,3 +246,6 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
 }
 
 export default PdfRenderer
+
+
+
