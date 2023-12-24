@@ -9,3 +9,4 @@ export async function GET(
   return handleAuth(request, endpoint)
 }
 
+
