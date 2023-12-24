@@ -55,20 +55,13 @@ export default async function Navbar () {
                 <Link
                   href='/dashboard'
                   className={buttonVariants({
-                    variant: 'ghost',
+                    variant: 'outline',
                     size: 'sm',
                   })}>
                   Dashboard
                 </Link>
 
-                <Link
-                  href='/dashboard'
-                  className={buttonVariants({
-                    variant: 'ghost',
-                    size: 'sm',
-                  })}>
-                  Pricing
-                </Link>
+               
 
                 <UserAccountNav
                   name={

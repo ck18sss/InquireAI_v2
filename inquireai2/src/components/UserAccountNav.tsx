@@ -74,9 +74,7 @@ import {
   
           <DropdownMenuSeparator />
   
-          <DropdownMenuItem asChild>
-            <Link href='/dashboard'>Dashboard</Link>
-          </DropdownMenuItem>
+          
   
           <DropdownMenuItem asChild>
               <Link href='/pricing'>
