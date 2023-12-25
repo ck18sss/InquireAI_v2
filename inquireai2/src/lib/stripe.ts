@@ -17,7 +17,8 @@ export async function getUserSubscriptionPlan() {
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 
-  if (!user.id) {
+  // Check if user is null before trying to access its id property
+  if (!user || !user.id) {
     return {
       ...PLANS[0],
       isSubscribed: false,
