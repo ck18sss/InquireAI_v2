@@ -30,7 +30,6 @@ export const proPlan = {
     amount: 19,
     priceIds: {
       test: 'price_1OQv4IF9tXeUrLDatAYyYEWP',
-      production: 'pprice_1OQuTZF9tXeUrLDawj4nLjrb',
     },
   },
   features: ['up to 16MB file size', 'up to 600 pages per file'],

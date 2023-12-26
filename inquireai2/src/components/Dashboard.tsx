@@ -98,7 +98,7 @@ const Dashboard = ({ subscriptionPlan }: PageProps) => {
         <div className="flex flex-col items-start justify-between gap-4 border-b border-gray-200 pb-5 sm:flex-row sm:items-center sm:gap-0">
           <TabsList>
             <TabsTrigger value="all-books">All Books</TabsTrigger>
-            <TabsTrigger value="my-books">My Books</TabsTrigger>
+            <TabsTrigger value="my-books">French</TabsTrigger>
           </TabsList>
           <UploadButton isSubscribed={subscriptionPlan.isSubscribed} />
         </div>
